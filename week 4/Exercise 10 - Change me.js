@@ -13,33 +13,34 @@ Code
 */
 function changeMe(arr) {
   // you can only write your code here!
-  var biodata = {};
+  var biodata1 = {};
+  var biodata2 = {};
   for (let a = 0; a < arr.length; a++) {
-      for (let b = 0; b < arr[a].length; b++) {
-          switch (b) {
-            case 0:
-                  biodata.firstname = arr[b][a];
-                  break;
-            case 1:
-                  biodata.lastname = arr[b][a];
-                  break;
-            case 2:
-                  biodata.gender = arr[b][a];
-                  break;
-            case 3:
-                if (arr[b][a] >= 2020 && arr[b][a] != 0) {
-                  biodata.age = "Invalid Birth Year";
-                } else {
-                  biodata.age = 2020 - arr[b][a];
-                }
-                  break;            
-            default:
-                  break;
-          }
+    if (a == 0) {
+      biodata1.firstname = arr[a][0];
+      biodata1.lastname = arr[a][1];
+      biodata1.gender = arr[a][2];
+      if (arr[a][3] != null) {
+        biodata1.age = 2020 - arr[a][3];
+      } else {
+        biodata1.age = 'Invalid Birth Year';
       }
+    } else if (a == 1) {
+      biodata2.firstname = arr[a][0];
+      biodata2.lastname = arr[a][1];
+      biodata2.gender = arr[a][2];
+      if (arr[a][3] != null) {
+        biodata2.age = 2020 - arr[a][3];
+      } else {
+        biodata2.age = 'Invalid Birth Year';
+      }
+    }
   }
-  return biodata;
-}
+  console.log(`1. ${biodata1.firstname} ${biodata1.lastname}:`);
+  console.log(biodata1);
+  console.log(`2. ${biodata2.firstname} ${biodata2.lastname}:`);
+  console.log(biodata2);
+};
 
 // TEST CASES
 changeMe([['Christ', 'Evans', 'Male', 1982], ['Robert', 'Downey', 'Male']]); // 1. Christ Evans:
